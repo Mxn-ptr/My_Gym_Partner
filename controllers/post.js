@@ -1,28 +1,53 @@
+const fs = require('fs');
+const {promisify} = require('util');
+const pipeline = promisify(require('stream').pipeline);
 const ObjectId = require('mongoose').Types.ObjectId;
 const Post = require('../models/post');
 const User = require('../models/user');
+const { uploadErrors } = require('../utils/error');
 
 // Get all posts
 module.exports.getPosts = (req, res) => {
   Post.find().sort({createdAt: -1})
     .then(posts => res.status(200).json(posts))
-    .catch(error => res.status(400).json({ error }));
+    .catch(error => res.status(200).json({ error }));
 }
 
 // Create a post
-module.exports.createPost = (req, res) => {
+module.exports.createPost = async (req, res) => {
+  let filename;
+
+  if (req.file !== null) {
+    try {
+      if (req.file.detectedMimeType !== 'image/jpg' && req.file.detectedMimeType !== 'image/png' && req.file.detectedMimeType !== 'image/jpeg')
+      throw Error('Invalid file');
+  
+      if (req.file.size > 500000)
+        throw Error('File too voluminous');
+    } catch (err) {
+      const errors = uploadErrors(err);
+      return res.status(200).json({ errors });
+    }
+  
+    filename = req.body.creator + Date.now() + '.jpg';
+
+    await pipeline(req.file.stream, fs.createWriteStream(`${__dirname}/../client/public/uploads/posts/${filename}`))
+  }
+
+
   const post = new Post({
-    ...req.body
+    ...req.body,
+    picture: req.file !== null ? './uploads/posts/' + filename : ''
   });
   post.save()
     .then(post => res.status(201).json(post))
-    .catch(error => res.status(400).json({ error }))
+    .catch(error => res.status(200).json({ error }))
 }
 
 // Update a post
 module.exports.updatePost = (req, res) => {
-  if (!ObjectID.isValid(req.params.id)) {
-    return res.status(400).send('ID post unknown: ' + req.params.id)
+  if (!ObjectId.isValid(req.params.id)) {
+    return res.status(200).send('ID post unknown: ' + req.params.id)
   }
   const updatedMessage = {message : req.body.message};
   Post.findByIdAndUpdate(req.params.id, {$set: updatedMessage}, {new: true})
@@ -32,8 +57,8 @@ module.exports.updatePost = (req, res) => {
 
 // Delete a post
 module.exports.deletePost = (req, res) => {
-  if (!ObjectID.isValid(req.params.id)) {
-    return res.status(400).send('ID post unknown: ' + req.params.id)
+  if (!ObjectId.isValid(req.params.id)) {
+    return res.status(200).send('ID post unknown: ' + req.params.id)
   }
 
   Post.deleteOne({_id: req.params.id})
@@ -45,14 +70,14 @@ module.exports.deletePost = (req, res) => {
 // Like a post
 module.exports.likePost = (req, res) => {
   if (!(ObjectId.isValid(req.params.id) || ObjectId.isValid(req.params.idUser))) {
-    return res.status(400).send('Id unknow');
+    return res.status(200).send('Id unknow');
   }
   Post.findByIdAndUpdate(req.params.id, { $addToSet: { likes: req.body.idUser } }, {new : true})
     .then(post => res.status(200).json(post))
-    .catch(error => res.status(400).json({ error }));
+    .catch(error => res.status(200).json({ error }));
 
   User.findByIdAndUpdate(req.body.idUser, { $addToSet: { likes: req.params.id } })
-    .catch(error => res.status(400).json({ error }));
+    .catch(error => res.status(200).json({ error }));
 }
 
 

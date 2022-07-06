@@ -1,0 +1,533 @@
+/* Global styles */
+:root {
+	--text : ui-sans-serif,system-ui,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+	--color-background: #111111;
+	--color-text: #FFD9AF;
+}
+html, body {
+	height: 100%;
+}
+
+body {
+	width: 100%;
+	margin: 0 0 0 0;
+	padding: 0 0 0 0;
+	background-color: #8a7f76;
+	font-family: var(--text);
+	align-items: center;
+	justify-content: center;
+}
+
+nav {
+	padding: 0.5%;
+	display: flex;
+	align-items: center;
+	background-color: #111111;
+	width: 100%;
+	display: flex;
+}
+
+h2 {
+	color: #FFD9AF;
+	font-family: var(--text);
+}
+
+a {
+	text-decoration: none;
+}
+
+.nav-left {
+	display: flex;
+	width: 100%;
+	align-items: center;
+}
+
+.nav-right {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding-left: 25%;
+}
+
+#logout {
+	width: 80px;
+	height: 80px
+}
+
+.container {
+	margin: auto;
+	margin-top: 50vh;
+	transform: translateY(-50%);
+	display: flex;
+	background-color: #111111;
+	width: 500px;
+	border: 1px solid black;
+	border-radius: 10px;
+	padding: 10px;
+	display: flex;
+	flex-flow: row;
+	flex-wrap: wrap;
+
+}
+
+.logo {
+	margin: auto;
+}
+
+form {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+.register-form > input {
+	width: 90%;
+	padding: 10px;
+	font-size: 16px;
+	margin: 10px;
+	border-radius: 10px;
+	background-color: white;
+	font-family: var(--text);
+}
+
+.email-error, .password-error, .firstname-error, .lastname-error, 
+.username-error, .passwordcontrol-error, .localisation-error {
+	color: red;
+	margin: auto
+}
+
+button {
+  background-color: #f8eedb;
+  border: 0 solid #e5e7eb;
+  border-radius: .5rem;
+  box-sizing: border-box;
+  color: #482307;
+  column-gap: 1rem;
+  cursor: pointer;
+  font-family: ui-sans-serif,system-ui,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  font-size: 100%;
+  font-weight: 700;
+  line-height: 24px;
+  margin: 0;
+  outline: 2px solid transparent;
+  padding: 1rem 1.5rem;
+  margin: 15px 60px;
+  transition: 1s;
+}
+
+button:hover {
+  background-color: #111111;
+  color: #fff;
+  box-shadow: -1px 2px 5px rgba(81,41,10,0.15),0px 1px 1px rgba(81,41,10,0.15);
+  
+}
+.head-container {
+	display: flex;
+	margin: auto;
+	
+}
+
+.top-button {
+	width: 150px;
+	margin: 15px 25px;
+}
+
+h3.success-form {
+	color: green;
+	margin:auto;
+}
+
+.popup-container {
+	background-color: #111111;
+	color: #fff;
+	margin: -500px auto;
+	z-index: 100;
+	width: 25%;
+	border: 1px solid #fff;
+	border-radius: 10px;
+	animation: 2s forwards;
+
+}
+
+.popup-container > h4 {
+	margin: 30px auto;
+}
+
+li {
+	list-style-type: none;
+}
+
+.popup-container > img {
+	height: 50px;
+	width: 50px;
+	border-radius: 20px;
+}
+.cross {
+	margin: 5px 5px 0 0;
+	transition: 0,1s;
+	cursor: pointer;
+}
+
+
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background: #444;
+    box-shadow: 0 0 1px 1px #111, inset 0 0 4px rgba(0,0,0,0.3);
+  }
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    box-shadow: inset 0 0 1px 1px #646464;
+  }
+
+h1 {
+	text-align: center;
+	margin: 20px auto
+}
+
+.profile-container {
+	display: flex;
+	justify-content: space-between;
+	margin: 30px auto;
+	
+}
+
+.profile-left, .profile-right {
+	background-color: var(--color-text);
+	width: 40%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	border: 1px solid black;
+	border-radius: 10px;
+	margin: 0px auto;
+	padding: 30px;
+	max-height: 800px;
+}
+
+.profile-right > ul {
+	width: 100%;
+	padding-left: 0;
+	max-height: 600px;
+	overflow-y:auto;
+}
+
+
+.profile-head {
+	display: flex;
+	justify-content: space-between;
+}
+
+.profile-head-left, .profile-head-right {
+	display: flex;
+	width: 100%;
+	margin: auto 0;
+	flex-direction: column;
+	align-items: center;
+}
+
+.profile-picture {
+	width: 70%;
+	height: 70%;
+	border: 1px solid #000;
+	border-radius: 10px;
+}
+
+.upload-img {
+	width: 50%;
+	text-align:center;
+	padding:1%;
+	border:thin solid black;
+	border-radius: 10px;
+}
+
+.upload-form {
+	display: flex;
+	align-items: center;
+}
+
+h3 {
+	margin: 10px auto;
+}
+
+.button-profile {
+	display: flex;
+	width: 100%;
+	justify-content: space-between;
+}
+
+.profile-footer-btn {
+	width: 100%;
+	padding: 10px 10px;
+}
+
+input#file {
+	display: none !important;
+}
+
+.upload-img > label {
+	cursor:pointer;
+}
+
+#imageName {
+	color: green;
+}
+
+.profile-username {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	margin: 0 auto
+}
+
+.profile-username > p {
+	margin: 0 auto;
+}
+
+.about {
+	border: 1px solid black;
+	border-radius: 10px;
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	padding: 10px;
+}
+
+.about-right, .about-left {
+	width: 100%;
+}
+
+.information-form {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.information-form > textarea, .information-form > select {
+	font-size: 16px;
+	border-radius: 10px;
+	background-color: #e5e7eb;
+	font-family: var(--text);
+
+}
+
+.information-form > p {
+	margin: 0;
+}
+
+
+.post-container {
+	width: 40%;
+	border: 2px solid black;
+	border-radius: 20px;
+	margin: 10px auto;
+	padding: 10px;
+	display: flex;
+	flex-direction: column;
+	background-color: var(--color-text);
+}
+
+.post-container > a, .post-container > .post-form {
+	margin:auto;
+}
+
+.post-pic {
+	border: 1px solid black;
+	border-radius: 20px;
+}
+
+.post-form {
+	width: 80%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.post-form > textarea {
+	margin: 10px auto;
+	width: 100%;
+	height: 150px;
+	border: 1px solid black;
+	border-radius: 20px;
+	padding: 10px;
+}
+
+.footer-form {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.btn-send {
+	display: flex;
+}
+
+.div-body-container {
+	display: flex;
+	flex-direction: row;
+}
+
+.thread-left, .thread-right {
+	width: 25%;
+}
+
+.followers-container {
+	background-color: var(--color-text);
+	border: 2px solid black;
+	border-radius: 20px;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.followers-container > ul {
+	align-items: center;
+	margin: 0px 10px;
+	padding-left: 0;
+}
+
+.followers-container > ul > li > img {
+	width: 15%;
+	height: 15%;
+	border-radius: 30%;
+}
+
+.followers-container > ul > li {
+	border: 1px solid white;
+	border-radius: 20px;
+	background-color: #111111;
+	display: flex;
+	color: white;
+	align-items: center;
+	padding: 0 10px;
+	width: 100%;
+}
+
+.followers-container > ul > li > button {
+	margin: 10px;
+}
+
+.thread-left {
+	float: left;
+}
+
+.thread-container {
+	display: flex;
+	width: 49%;
+	margin: auto;
+	border: 2px solid black;
+	border-radius: 20px;
+	background-color: var(--color-background);
+	justify-content: center;
+}
+
+.thread-container > ul {
+	padding-left: 0%;
+	width: 95%;
+}
+
+.thread-right {
+	float: right;
+}
+
+
+.card-container {
+	width: 100%;
+	background-color: var(--color-text);
+	border: 1px solid white;
+	border-radius: 20px;
+	margin: 20px auto;
+}
+
+.card-header, .comment-header {
+	display: flex;
+	width: 100%;
+	justify-content: space-between;
+	padding: 10px;
+}
+
+.card-left, .card-header > span, .left-part, .left-part > span {
+	display: flex;
+	align-items: center;
+}
+
+.card-left > img, .left-part > img {
+	border-radius: 20px;
+}
+
+.pseudo-card {
+	margin: 0 20px;
+}
+
+.card-left > button, .left-part > button {
+	display: flex;
+	align-items: center;
+	height: 30px;
+	margin: 0 auto;
+}
+
+.card-text {
+	font-size: 20px;
+	margin: 0 10px;
+}
+
+.card-text > img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+.updated-post {
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	margin-right: 20px;
+}
+
+.updated-post > textarea {
+	width: 60%;
+	border-radius: 20px;
+	padding: 10px;
+}
+
+.card-footer {
+	display: flex;
+}
+
+.card-footer > .likes-container, .card-footer > .comment-icon {
+	margin: auto 10px;
+}
+
+.comments-container {
+	border: 1px solid black;
+	margin: 0 10px;
+	border-radius: 20px;
+}
+
+.comments-container > p {
+	margin: 5px 30px;
+}
+
+.comment-form {
+	margin: 10px auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.edit-comment {
+	margin: auto 10px;
+}
+
+.comment-form > input {
+	width: 90%;
+	border-radius: 20px;
+	height: 100%
+}

@@ -5,18 +5,20 @@ const { isEmail } = require('validator');
 // Define a User model
 const userSchema = new mongoose.Schema(
   {
-    first_name: {
+    firstname: {
       type: String,
       maxlength: 20,
+      required: true,
       trim: true
     },
-    last_name: {
+    lastname: {
       type: String,
       maxlength: 20,
+      required: true,
       trim: true
     },
     age: {
-      type: Number,
+      type: String,
       trim: true
     },
     gender: {
@@ -47,19 +49,24 @@ const userSchema = new mongoose.Schema(
     },
     localisation: {
       type: String,
+      required: true,
       trim: true
+    },
+    bio: {
+      type: String,
+      max: 1024
     },
     type_of_sports: {
       type: String,
       trim: true
     },
     frequence: {
-      type: Number,
+      type: String,
       trim: true
     },
     picture: {
       type: String,
-      default: ""
+      default: "./uploads/profile/default-avatar.jpg"
     },
     following: {
       type: [String]
