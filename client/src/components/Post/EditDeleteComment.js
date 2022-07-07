@@ -82,7 +82,7 @@ export default function EditDeleteComment({ comment, postId }) {
               onChange={(e) => setText(e.target.value)}
               defaultValue={comment.text}
             />
-            <input type="submit" value="Modify" />
+            <button>Modify</button>
           </form>
         </>
       )}

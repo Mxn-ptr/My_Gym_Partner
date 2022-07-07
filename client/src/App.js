@@ -8,6 +8,7 @@ import axios from "axios";
 import { useDispatch } from "react-redux";
 import { getUserdata } from "./feature/userSlice";
 import { getAllUsers } from "./feature/usersSlice";
+import ProfileUser from "./components/Profile/ProfileUser";
 
 function App() {
   const [uid, setUid] = useState(null);
@@ -43,6 +44,7 @@ function App() {
         <Route path="/" element={<Register />}/>
         <Route path="/home" element={<Home />}/>
         <Route path="/profile" element={<Profile />} />
+        <Route path="/profileuser" element={<ProfileUser />} />
       </Routes>
     </UidContext.Provider>
   );

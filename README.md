@@ -8,7 +8,7 @@ Hello everyone ! My name is Maxence Potier, I have 22 years old and I am a studi
 
 This project is a social network to help to find your gym partner. I have this idea because i go to the gym almost everyday but sometimes i don't have motivation and I would like to have someone to train with. I'm sure I'm not the only one in this case so I decided to develop a social network to answer this problem.
 
-I decided to develop this project with a MERN Architecture. For more information on the developpement of the project I recommend you to write my article : (link when medium is ok)
+I decided to develop this project with a MERN Architecture. For more information on the developpement of the project I recommend you to write my article : [link](https://www.linkedin.com/pulse/my-portfolio-project-maxence-potier)
 
 ## Installation 
 
